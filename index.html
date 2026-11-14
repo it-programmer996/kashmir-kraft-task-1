@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kashmir Kraft | Handmade from Azad Kashmir</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="logo">🧶 Kashmir <span>Kraft</span></div>
+  <input type="text" id="searchBox" placeholder="Search shawl, box, bag...">
+  <div class="head-btns">
+    <button onclick="openAuth()">Login</button>
+    <button onclick="openCart()">🛒 Cart (<span id="cartCount">0</span>)</button>
+    <button onclick="openWish()">❤️ Wishlist (<span id="wishCount">0</span>)</button>
+  </div>
+</header>
+
+<div class="hero">
+  <h1>Handmade Products</h1>
+  <p>Direct from artisans of Azad Kashmir to your doorstep. Cash on Delivery available.</p>
+  <button onclick="scrollToProducts()">Shop Now ↓</button>
+</div>
+
+<div class="filters">
+  <button onclick="filterCat('all')">All (15)</button>
+  <button onclick="filterCat('shawl')">Kashmiri Shawls</button>
+  <button onclick="filterCat('mens')">Mens Shawl</button>
+  <button onclick="filterCat('dress')">Kashmiri Dresses</button>
+  <button onclick="filterCat('shoes')">Kashmiri Shoes</button>
+  <button onclick="filterCat('decor')">Decoration Piece</button>
+  <button onclick="filterCat('bag')">Bags</button>
+  <button onclick="filterCat('food')">Dry Fruits</button>
+</div>
+
+<div style="text-align:center; margin-bottom:10px;">
+  <label>Sort: </label>
+  <select id="sortSelect" onchange="sortProducts()" style="padding:8px;border-radius:20px;">
+    <option value="normal">Featured</option>
+    <option value="low">Price: Low to High</option>
+    <option value="high">Price: High to Low</option>
+  </select>
+</div>
+
+<main id="productGrid"></main>
+
+
+<div id="detailModal" class="modal hidden">
+  <div class="modal-box" style="max-width:450px;">
+    <span class="close" onclick="closeModal()">x</span>
+    <img id="dImg" src="" style="height:260px;">
+    <div id="dGallery" style="display:flex; gap:6px; justify-content:center; margin:8px 0;"></div>
+    <h2 id="dName"></h2>
+    <p id="dDesc"></p>
+    <h3 id="dPrice"></h3>
+    <p><b>Select Colour:</b></p>
+    <div id="dColors" style="display:flex; gap:8px; justify-content:center; flex-wrap:wrap; margin-bottom:10px;"></div>
+    <p><b>Select Type / Size:</b></p>
+    <div id="dTypes" style="display:flex; gap:8px; justify-content:center; flex-wrap:wrap; margin-bottom:12px;"></div>
+    <p>Quantity: <button onclick="changeQty(-1)">-</button> <span id="dQty">1</span> <button onclick="changeQty(1)">+</button></p>
+    <button onclick="addToCartWithVariant()">Add to Cart - Selected Colour</button>
+  </div>
+</div>
+
+
+<div id="cartBox" class="cart hidden">
+  <h3>Your Cart</h3>
+  <div id="cartItems"></div>
+  <hr>
+  <p>Total: <b id="cartTotal">Rs 0</b></p>
+  <input id="custName" placeholder="Your Name">
+  <input id="custCity" placeholder="City - e.g. Muzaffarabad">
+  <button onclick="placeOrder()">Place Order - COD</button>
+  <p id="orderMsg"></p>
+  <button onclick="closeCart()">Close</button>
+</div>
+
+<!-- Wishlist Box -->
+<div id="wishBox" class="cart hidden">
+  <h3>❤️ My Wishlist</h3>
+  <div id="wishItems"></div>
+  <button onclick="closeWish()">Close</button>
+</div>
+
+
+<div id="authModal" class="modal hidden">
+  <div class="modal-box">
+    <h3>Login / Register</h3>
+    <input id="userEmail" placeholder="Email">
+    <input id="userPass" type="password" placeholder="Password">
+    <button onclick="doLogin()">Login / Register</button>
+    <p id="authMsg"></p>
+    <button onclick="closeAuth()">Close</button>
+  </div>
+</div>
+
+<footer style="background:#1a3a2f;color:#fff;text-align:center;padding:25px;margin-top:20px;">
+  <h3>🧶 Kashmir Kraft</h3>
+  <p>Handmade Products from Azad Kashmir</p>
+  <p>Cash on Delivery | 2-3 Days Delivery in Pakistan | 15 Products</p>
+  <p style="font-size:12px;margin-top:15px;">© 2026 Kashmir Kraft - Demo Project for Learning Purpose</p>
+  <p style="font-size:12px;color:#ccc;">This is a demo e-commerce website built with HTML, CSS & JavaScript.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
